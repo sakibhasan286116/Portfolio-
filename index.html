@@ -662,13 +662,13 @@
             <div>
               <h2>Let&rsquo;s work<br />together <span class="spark">✦</span></h2>
               <p class="sub">I&rsquo;m currently open for new projects and collaborations. Reach me by email or on LinkedIn — tell me what you&rsquo;re building and we&rsquo;ll work out the scope and price together.</p>
-              <a class="freelance-pill" href="mailto:sakibhasan1009@gmail.com">
+              <a class="freelance-pill" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sakibhasan1009@gmail.com" target="_blank" rel="noopener">
                 <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
                 Available for freelance
               </a>
             </div>
             <div class="contact-rows">
-              <a class="crow" href="mailto:sakibhasan1009@gmail.com">
+              <a class="crow" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sakibhasan1009@gmail.com" target="_blank" rel="noopener">
                 <span class="cicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
                 <span><span>Email me</span><b>sakibhasan1009@gmail.com</b></span>
               </a>
@@ -715,7 +715,7 @@
                   <textarea id="f-msg" placeholder="What does your business do, and what should the website do for you?"></textarea>
                 </div>
                 <div class="brief-actions">
-                  <button type="submit" class="btn btn-light">Open in my email app</button>
+                  <button type="submit" class="btn btn-light">Send via Gmail</button>
                   <button type="button" class="btn btn-ghost" id="copyBtn">Copy brief</button>
                   <span class="copied" id="copiedMsg">Copied — paste it into any email or DM.</span>
                 </div>
@@ -807,13 +807,11 @@
           e.preventDefault();
           var biz = document.getElementById("f-biz").value.trim();
           var subject = "Website project" + (biz ? " — " + biz : "");
-          var a = document.createElement("a");
-          a.href = "mailto:" + EMAIL +
-            "?subject=" + encodeURIComponent(subject) +
+          var url = "https://mail.google.com/mail/?view=cm&fs=1" +
+            "&to=" + encodeURIComponent(EMAIL) +
+            "&su=" + encodeURIComponent(subject) +
             "&body=" + encodeURIComponent(briefText());
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
+          window.open(url, "_blank", "noopener");
         });
 
         document.getElementById("copyBtn").addEventListener("click", function () {
