@@ -112,7 +112,14 @@
       }
       .hero-role {
         font-family: "Oswald", sans-serif; font-weight: 600; text-transform: uppercase;
-        font-size: clamp(19px, 2.1vw, 25px); letter-spacing: 0.06em; color: var(--red-bright); margin: 14px 0 12px; line-height: 1.25;
+        font-size: clamp(17px, 1.85vw, 22px); letter-spacing: 0.045em; color: var(--red-bright); margin: 14px 0 12px; line-height: 1.35;
+      }
+      .hero-role .sep { color: var(--ink-faint); font-weight: 400; padding: 0 2px; }
+      @media (max-width: 620px) {
+        .hero-role { font-size: 19px; letter-spacing: 0.04em; }
+      }
+      @media (max-width: 380px) {
+        .hero-role { font-size: 17.5px; }
       }
       .hero-intro { color: var(--ink-soft); font-size: 15.5px; margin: 0 0 20px; max-width: 32em; }
       .hero-intro strong { color: var(--ink); }
@@ -378,8 +385,8 @@
           <div class="hero-left">
             <p class="hello-script">Hello, I&rsquo;m</p>
             <h1 class="hero-name">Sakib</h1>
-            <p class="hero-role">Web Developer</p>
-            <p class="hero-intro">I design and build stylish, fast, mobile-first websites for small businesses, shops and online stores — any trade, any country. Designed, built and launched for you in <strong>7–10 days</strong>. Every project is different, so we agree the scope and price together before we start.</p>
+            <p class="hero-role">Web Developer <span class="sep" aria-hidden="true">|</span> AI Enthusiast</p>
+            <p class="hero-intro">I design and build stylish, fast, mobile-first websites for small businesses, shops and online stores — any trade, any country. As an AI enthusiast, I also put smart AI tools to work in the products I build. Designed, built and launched for you in <strong>7–10 days</strong>. Every project is different, so we agree the scope and price together before we start.</p>
             <span class="worldwide">
               <span class="wic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
               Available worldwide
