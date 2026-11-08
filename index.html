@@ -773,12 +773,21 @@
           });
         });
         document.getElementById("backBtn").addEventListener("click", function () {
-          if (window.history.length > 1 && window.location.hash === "#contact") {
-            window.history.back();
-          } else {
-            window.location.hash = "";
-            showPortfolio();
+          /* Never use history.back() here: a visitor who landed directly on
+             the #contact view (shared link, app preview) has no in-site
+             history entry, so history.back() would leave the site entirely.
+             Instead, return deterministically within this page — clear the
+             hash to the home state and swap the view back to the portfolio.
+             The hashchange listener above still handles the browser's own
+             Back/Forward buttons. */
+          var homeUrl = window.location.pathname + window.location.search;
+          try {
+            window.history.pushState(null, "", homeUrl);
+          } catch (err) {
+            try { window.location.hash = ""; } catch (err2) {}
           }
+          showPortfolio();
+          window.scrollTo(0, 0);
         });
         window.addEventListener("hashchange", syncView);
         syncView();
