@@ -294,8 +294,23 @@
       summary .plus { font-family: "IBM Plex Mono", monospace; color: var(--red-bright); font-size: 20px; line-height: 1; flex: none; }
       details p { margin: 0 0 16px; color: var(--ink-soft); }
 
-      /* ================= CONTACT ================= */
-      .contact-band { border-top: 1px solid var(--line); margin-top: 54px; padding: 48px 0 60px; background: #050505; }
+      /* ================= CONTACT PAGE ================= */
+      .contact-page[hidden] { display: none; }
+      .contact-page { min-height: 100vh; background: #050505; }
+      .contact-topbar {
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 18px 0; border-bottom: 1px solid var(--line);
+      }
+      .back-btn {
+        display: inline-flex; align-items: center; gap: 9px;
+        min-height: 44px; padding: 8px 16px 8px 12px;
+        border-radius: 6px; border: 1px solid #3a3a3a; background: transparent;
+        color: var(--ink); font: inherit; font-size: 14.5px; font-weight: 700;
+        cursor: pointer; text-decoration: none;
+      }
+      .back-btn:hover { border-color: var(--ink-faint); }
+      .contact-topbar .brand { font-family: "Oswald", sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+      .contact-band { padding: 48px 0 60px; background: #050505; }
       .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 44px; }
       @media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr 1fr; } .contact-grid .brief-wrap { grid-column: 1 / -1; } }
       @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; gap: 34px; } }
@@ -547,7 +562,7 @@
                   <span class="picon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
                   <div>
                     <h3>Discover</h3>
-                    <p>Tell me about your business in the brief below. I reply with questions, and we agree the scope, price and a start date together — no obligation.</p>
+                    <p>Tell me about your business in the project brief on the contact page. I reply with questions, and we agree the scope, price and a start date together — no obligation.</p>
                   </div>
                 </li>
                 <li>
@@ -628,14 +643,26 @@
         </div>
       </section>
 
-      <!-- ================= CONTACT ================= -->
+    </main>
+
+    <!-- ================= CONTACT PAGE ================= -->
+    <div class="contact-page" id="contactPage" hidden>
+      <div class="wrap">
+        <div class="contact-topbar">
+          <button type="button" class="back-btn" id="backBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+            Back to portfolio
+          </button>
+          <span class="brand">Sakib · Web Developer</span>
+        </div>
+      </div>
       <div class="contact-band" id="contact">
         <div class="wrap">
           <div class="contact-grid">
             <div>
               <h2>Let&rsquo;s work<br />together <span class="spark">✦</span></h2>
               <p class="sub">I&rsquo;m currently open for new projects and collaborations. Reach me by email or on LinkedIn — tell me what you&rsquo;re building and we&rsquo;ll work out the scope and price together.</p>
-              <a class="freelance-pill" href="#contact">
+              <a class="freelance-pill" href="mailto:sakibhasan1009@gmail.com">
                 <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
                 Available for freelance
               </a>
@@ -697,7 +724,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <footer>
       <div class="wrap foot-in">
@@ -715,6 +742,46 @@
     <script>
       (function () {
         var EMAIL = "sakibhasan1009@gmail.com";
+
+        /* ---------- Contact page routing ---------- */
+        var contactPage = document.getElementById("contactPage");
+        var siteParts = [
+          document.querySelector("header.hero"),
+          document.querySelector("main"),
+          document.querySelector("footer")
+        ];
+
+        function showContact() {
+          siteParts.forEach(function (el) { if (el) el.hidden = true; });
+          contactPage.hidden = false;
+          document.title = "Contact — Sakib, Web Developer";
+          window.scrollTo(0, 0);
+        }
+        function showPortfolio() {
+          contactPage.hidden = true;
+          siteParts.forEach(function (el) { if (el) el.hidden = false; });
+          document.title = "Sakib — Web Developer Portfolio";
+        }
+        function syncView() {
+          if (window.location.hash === "#contact") { showContact(); } else { showPortfolio(); }
+        }
+        document.querySelectorAll('a[href="#contact"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (window.location.hash === "#contact") { showContact(); }
+            else { window.location.hash = "contact"; }
+          });
+        });
+        document.getElementById("backBtn").addEventListener("click", function () {
+          if (window.history.length > 1 && window.location.hash === "#contact") {
+            window.history.back();
+          } else {
+            window.location.hash = "";
+            showPortfolio();
+          }
+        });
+        window.addEventListener("hashchange", syncView);
+        syncView();
 
         function briefText() {
           var name = document.getElementById("f-name").value.trim();
