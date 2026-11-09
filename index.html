@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Sakib is a web developer building fast, mobile-first websites for small businesses, shops and online stores. Live products Frogex and Topic Spinner, delivery in 7–10 days. Every project is scoped and priced individually — get in touch by email or LinkedIn." />
+    <meta name="description" content="Sakib is a textile engineering student at NITER who works with AI — building AI-powered tools and digital products like Frogex and Topic Spinner. Get in touch by email or LinkedIn." />
     <link rel="icon" href="data:," />
-    <title>Sakib — Web Developer Portfolio</title>
+    <title>Sakib — AI &amp; Textile Engineer · Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -110,17 +110,19 @@
         font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
         font-size: clamp(58px, 6.4vw, 88px); line-height: 0.98; letter-spacing: 0.01em; margin: 0;
       }
-      .hero-role {
-        font-family: "Oswald", sans-serif; font-weight: 600; text-transform: uppercase;
-        font-size: clamp(17px, 1.85vw, 22px); letter-spacing: 0.045em; color: var(--red-bright); margin: 14px 0 12px; line-height: 1.35;
+      .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; max-width: 34em; }
+      .hero-tag-pill {
+        display: inline-flex; align-items: center; gap: 7px;
+        font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
+        letter-spacing: 0.1em; text-transform: uppercase; line-height: 1;
+        color: var(--ink-soft); background: rgba(255,255,255,0.03);
+        border: 1px solid #343434; border-radius: 999px; padding: 8px 13px;
       }
-      .hero-role .sep { color: var(--ink-faint); font-weight: 400; padding: 0 2px; }
-      @media (max-width: 620px) {
-        .hero-role { font-size: 19px; letter-spacing: 0.04em; }
-      }
-      @media (max-width: 380px) {
-        .hero-role { font-size: 17.5px; }
-      }
+      .hero-tag-pill .tp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); flex: none; }
+      .hero-tag-pill--ai { color: #fff; border-color: var(--red-deep); background: linear-gradient(180deg, #3d0208, #220106); }
+      .hero-tag-pill--ai .tp-dot { background: var(--red-bright); box-shadow: 0 0 0 3px rgba(229,9,20,0.22); }
+      .hero-tag-pill--tex { color: var(--ink); border-color: #4a4a4a; }
+      .hero-tag-pill--tex .tp-dot { background: var(--ink); }
       .hero-intro { color: var(--ink-soft); font-size: 15.5px; margin: 0 0 20px; max-width: 32em; }
       .hero-intro strong { color: var(--ink); }
       .worldwide {
@@ -374,7 +376,7 @@
     <header class="hero" id="top">
       <div class="wrap">
         <div class="hero-top">
-          <div class="l">Web Developer <span>Digital Creator</span></div>
+          <div class="l">Textile Engineer <span>Works with AI · Digital Creator</span></div>
           <div class="r">Available for freelance <span class="spark">✦</span></div>
         </div>
         <div class="giant" aria-hidden="true">PORTFOLIO</div>
@@ -385,8 +387,14 @@
           <div class="hero-left">
             <p class="hello-script">Hello, I&rsquo;m</p>
             <h1 class="hero-name">Sakib</h1>
-            <p class="hero-role">Web Developer <span class="sep" aria-hidden="true">|</span> AI Enthusiast</p>
-            <p class="hero-intro">I design and build stylish, fast, mobile-first websites for small businesses, shops and online stores — any trade, any country. As an AI enthusiast, I also put smart AI tools to work in the products I build. Designed, built and launched for you in <strong>7–10 days</strong>. Every project is different, so we agree the scope and price together before we start.</p>
+            <div class="hero-tags" aria-label="What Sakib does">
+              <span class="hero-tag-pill hero-tag-pill--ai"><span class="tp-dot" aria-hidden="true"></span>Works with AI</span>
+              <span class="hero-tag-pill hero-tag-pill--tex"><span class="tp-dot" aria-hidden="true"></span>Textile Engineer</span>
+              <span class="hero-tag-pill"><span class="tp-dot" aria-hidden="true"></span>AI Enthusiast</span>
+              <span class="hero-tag-pill"><span class="tp-dot" aria-hidden="true"></span>AI Tools &amp; Automation</span>
+              <span class="hero-tag-pill"><span class="tp-dot" aria-hidden="true"></span>B.Sc. Textile Engg. — NITER</span>
+            </div>
+            <p class="hero-intro">I&rsquo;m a <strong>textile engineering student at NITER</strong> who works hands-on with <strong>AI</strong> every day — using AI tools to learn faster, create, and turn ideas into working digital products like Frogex. I also design and build stylish, fast, mobile-first websites for small businesses, shops and online stores — any trade, any country — designed, built and launched for you in <strong>7–10 days</strong>. Every project is different, so we agree the scope and price together before we start.</p>
             <span class="worldwide">
               <span class="wic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
               Available worldwide
@@ -549,6 +557,9 @@
               </div>
               <p class="mid-label" style="margin-top:26px">Skills</p>
               <div class="skill-tags">
+                <span>AI Tools</span>
+                <span>AI Automation</span>
+                <span>Textile Engineering</span>
                 <span>Web Design</span>
                 <span>HTML / CSS</span>
                 <span>JavaScript</span>
@@ -660,7 +671,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
             Back to portfolio
           </button>
-          <span class="brand">Sakib · Web Developer</span>
+          <span class="brand">Sakib · AI &amp; Textile Engineer</span>
         </div>
       </div>
       <div class="contact-band" id="contact">
@@ -735,7 +746,7 @@
 
     <footer>
       <div class="wrap foot-in">
-        <p>© 2026 Sakib — Web Developer. Sites built &amp; checked on desktop and phone before every launch.</p>
+        <p>© 2026 Sakib — Textile Engineer working with AI. Sites built &amp; checked on desktop and phone before every launch.</p>
         <nav aria-label="Footer">
           <a href="#work">Work</a>
           <a href="#process">Process</a>
@@ -761,13 +772,13 @@
         function showContact() {
           siteParts.forEach(function (el) { if (el) el.hidden = true; });
           contactPage.hidden = false;
-          document.title = "Contact — Sakib, Web Developer";
+          document.title = "Contact — Sakib, AI & Textile Engineer";
           window.scrollTo(0, 0);
         }
         function showPortfolio() {
           contactPage.hidden = true;
           siteParts.forEach(function (el) { if (el) el.hidden = false; });
-          document.title = "Sakib — Web Developer Portfolio";
+          document.title = "Sakib — AI & Textile Engineer · Portfolio";
         }
         function syncView() {
           if (window.location.hash === "#contact") { showContact(); } else { showPortfolio(); }
